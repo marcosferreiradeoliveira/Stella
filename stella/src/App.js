@@ -13,7 +13,7 @@ export default function HomePage() {
       <div className="diagonal green">
         <div className="container">
           <div className="text-container">
-            <p className="subtitle">artes para lambe-lambes</p>
+            <p className="subtitle">artes para lambe-lambe</p>
             <h1 className="title">FALATÓRIO NA RUA</h1>
             <h2 className="author">Stella do Patrocínio</h2>
             <div className="links">
