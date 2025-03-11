@@ -79,7 +79,6 @@ export default function HomePage() {
           id="one"
           title="Eu sou Stella do Patrocínio
 Bem patrocinada."
-          text="Este é um parágrafo de texto na página 1. Aqui você pode adicionar mais informações sobre o conteúdo."
           onOpenAudioModal={() => setIsAudioModalOpen(true)}
           onOpenLibrasModal={() => setIsLibrasModalOpen(true)}
         >
@@ -92,7 +91,94 @@ Bem patrocinada."
         <PageSection
           id="two"
           title="Página 2"
-          text="Este é um parágrafo de texto na página 2. Aqui você pode adicionar mais informações sobre o conteúdo."
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Three */}
+      <Element name="three">
+        <PageSection
+          id="three"
+          title="Página 3"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Four */}
+      <Element name="four">
+        <PageSection
+          id="four"
+          title="Página 4"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Five */}
+      <Element name="five">
+        <PageSection
+          id="five"
+          title="Página 5"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Six */}
+      <Element name="six">
+        <PageSection
+          id="six"
+          title="Página 6"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Seven */}
+      <Element name="seven">
+        <PageSection
+          id="seven"
+          title="Página 7"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Eight */}
+      <Element name="eight">
+        <PageSection
+          id="eight"
+          title="Página 8"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Nine */}
+      <Element name="nine">
+        <PageSection
+          id="nine"
+          title="Página 9"
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </PageSection>
+      </Element>
+
+      {/* Página Ten */}
+      <Element name="ten">
+        <PageSection
+          id="ten"
+          title="Página 10"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
           <div className="diagonal-divider diagonal-divider-bottom"></div>
@@ -108,7 +194,16 @@ function PageSection({ id, title, text, children, onOpenAudioModal, onOpenLibras
     <div className="page-section" id={id}>
       {children}
       <div className="section-content">
-        <h1>{title}</h1>
+        {id === "one" ? (
+          <div className="title-container">
+            <h1>{title}</h1>
+            <div className="title-description">
+              Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular.
+            </div>
+          </div>
+        ) : (
+          <h1>{title}</h1>
+        )}
         <div className="content-flex">
           {id === "one" && (
             <>
@@ -145,7 +240,13 @@ function PageSection({ id, title, text, children, onOpenAudioModal, onOpenLibras
                       Libras
                     </button>
                   </div>
+                  
                 </div>
+                <h3 className="section-title" style={{fontFamily: 'Unit Slab, sans-serif'}}>Baixe o cartaz</h3>
+
+                <button className="accessibility-btn" onClick={onOpenLibrasModal}>
+                      Baixe Aqui
+                    </button>
               </div>
               <div className="text-content-section">
               <p>Texto por Sara Ramos</p>
