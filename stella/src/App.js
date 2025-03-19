@@ -23,8 +23,25 @@ import Audio7 from "./assets/Audios/7.mp3";
 import Audio8 from "./assets/Audios/8.mp3";
 import Audio9 from "./assets/Audios/9.mp3";
 import Realizacao from "./assets/images/realizacao.png";
+import StellaRetrato from "./assets/images/STELLA.png";
+import EquipeMob from "./assets/images/equipe-mob.jpg.webp";
+import ProjetoImg from "./assets/images/projeto.png";
+
+// Constantes para audiodescrições (indisponíveis no momento)
+const AudioDesc1 = null;
+const AudioDesc2 = null;
+const AudioDesc3 = null;
+const AudioDesc4 = null;
+const AudioDesc5 = null;
+const AudioDesc6 = null;
+const AudioDesc7 = null;
+const AudioDesc8 = null;
+const AudioDesc9 = null;
+const AudioDesc10 = null;
 
 function Modal({ isOpen, onClose, children, audioDescription, librasVideoId }) {
+  const [audioError, setAudioError] = useState(false);
+
   if (!isOpen) return null;
 
   return (
@@ -32,6 +49,47 @@ function Modal({ isOpen, onClose, children, audioDescription, librasVideoId }) {
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
         {children}
+        {audioDescription && (
+          <div className="audio-modal-content">
+            <h3>Audiodescrição</h3>
+            {audioDescription !== null ? (
+              <audio controls onError={() => setAudioError(true)}>
+                <source src={audioDescription} type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
+            ) : (
+              <p>Audiodescrição não disponível no momento.</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Componente para páginas introdutórias
+function IntroSection({ 
+  id, 
+  title, 
+  textContent,
+  image,
+  children 
+}) {
+  return (
+    <div className="intro-section" id={id}>
+      {children}
+      <div className="intro-content">
+        <div className="intro-title-container">
+          <h2>{title}</h2>
+        </div>
+        {image && (
+          <div className="intro-image-container">
+            <img src={image} alt={title} className="intro-image" />
+          </div>
+        )}
+        <div className="intro-text-content">
+          {textContent}
+        </div>
       </div>
     </div>
   );
@@ -54,12 +112,25 @@ export default function HomePage() {
     }
   }, []);
 
-  const handleOpenAudioModal = (audioDescription) => {
-    setCurrentAudioDescription(audioDescription);
-    setIsAudioModalOpen(true);
+  const handleOpenAudioModal = (audioFile) => {
+    if (!audioFile) {
+      console.log('No audio file provided');
+      return;
+    }
+    console.log("Opening audio modal with file:", audioFile);
+    try {
+      setCurrentAudioDescription(audioFile);
+      setIsAudioModalOpen(true);
+    } catch (error) {
+      console.error('Error opening audio modal:', error);
+    }
   };
 
   const handleOpenLibrasModal = (librasVideoId) => {
+    if (!librasVideoId) {
+      console.log('No video ID provided');
+      return;
+    }
     setCurrentLibrasVideoId(librasVideoId);
     setIsLibrasModalOpen(true);
   };
@@ -72,7 +143,6 @@ export default function HomePage() {
       <Modal 
         isOpen={isAudioModalOpen} 
         onClose={() => setIsAudioModalOpen(false)}
-        audioDescription={currentAudioDescription}
       >
         <div className="audio-modal-content">
           <h3>Audiodescrição</h3>
@@ -115,6 +185,91 @@ export default function HomePage() {
       </div>
       <div className="diagonal-red"></div>
 
+      {/* Menu de Navegação */}
+      <nav className="navigation-menu">
+        <Link to="project" smooth={true} duration={500}>Sobre o Projeto</Link>
+        <Link to="stella" smooth={true} duration={500}>Stella do Patrocínio</Link>
+        <Link to="mobcontent" smooth={true} duration={500}>mobCONTENT</Link>
+        <Link to="one" smooth={true} duration={500}>Falatório</Link>
+      </nav>
+
+      {/* Página Sobre o Projeto */}
+      <Element name="project">
+        <IntroSection
+          id="project"
+          title="Sobre o Projeto"
+          image={ProjetoImg}
+          textContent={
+            <>
+              <p>Um projeto que presta homenagem à vida e obra de Stella do Patrocínio, cuja voz e prática da palavra– o seu Falatório– nos deixam um imenso legado poético-artístico e de resistência às políticas manicomiais.</p>
+              
+              <p>Através da instalação de lambe-lambes, em uma área total de 60m², nas ruas de Botafogo, onde Stella foi sequestrada, celebramos sua contribuição à cultura brasileira e destacamos sua jornada de enfrentamento às estigmatizações relacionadas ao racismo e à ideia de loucura.</p>
+              
+              <p>Artistas locais e membros da comunidade colaboram na criação dos lambe-lambes, incorporando elementos da vida de Stella, suas palavras e sua luta pela liberdade artística e mental.</p>
+              
+              <p>Os áudios que registram a voz de Stella do Patrocínio estão em domínio público, permitindo o acesso gratuito ao seu Falatório. Cada lambe-lambe terá um QR code que direcionará para o trecho em áudio descrito no cartaz.</p>
+
+              <div className="team-box">
+                <h3>EQUIPE:</h3>
+                <p>Criação, Direção, Produção Executiva: Marcos Ferreira</p>
+                <p>Curadoria: Sara Ramos</p>
+                <p>Produção: Johanna Beringer e Victória Pasqual</p>
+                <p>Design: Maria Mariana Costas</p>
+              </div>
+            </>
+          }
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </IntroSection>
+      </Element>
+
+      {/* Página Stella do Patrocínio */}
+      <Element name="stella">
+        <IntroSection
+          id="stella"
+          title="Stella do Patrocínio"
+          image={StellaRetrato}
+          textContent={
+            <>
+              <p>Stella do Patrocínio (Rio de Janeiro, 1941-1992) foi uma artista brasileira que, através da palavra oral, criou um estilo estético-político e artístico singular. Aos 21 anos, foi detida pela polícia enquanto caminhava na rua Voluntários da Pátria, em Botafogo, e encaminhada para instituições manicomiais. Permaneceu internada por três décadas na Colônia Juliano Moreira, onde desenvolveu seu Falatório: uma prática da palavra que, registrada em áudio na década de 1980, compõe hoje um dos mais importantes legados da cultura brasileira.</p>
+              
+              <p>Suas falas, que denunciam a violência manicomial e seus racismos, questionam as noções de normalidade, saúde e doença, além de propor uma reflexão profunda sobre a liberdade, o direito à cidade e o direito de existir. Através de uma linguagem única, que combina refinamento estético e força política, Stella criou conceitos como "malezinho prazeres" e elaborou uma crítica contundente às instituições e seus cientificismos.</p>
+              
+              <p>Embora tenha falecido em 1992, sem jamais ter saído da Colônia Juliano Moreira, seu Falatório segue ecoando e inspirando artistas, pesquisadores e movimentos sociais. Em 2001, foi publicado o livro "Reino dos bichos e dos animais é o meu nome", organizado por Viviane Mosé. Em 2022, foi tema da dissertação "Stella do Patrocínio: entre a letra e a negra garganta de carne", de Sara Ramos.</p>
+            </>
+          }
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </IntroSection>
+      </Element>
+
+      {/* Página mobCONTENT */}
+      <Element name="mobcontent">
+        <IntroSection
+          id="mobcontent"
+          title="mobCONTENT"
+          image={EquipeMob}
+          textContent={
+            <>
+              <p>A mobCONTENT é uma produtora audiovisual especializada em projetos de impacto cultural, social e ambiental, utilizando tecnologias de ponta tanto como tema quanto na produção de conteúdos inovadores. Sob a liderança de Marcos Ferreira, premiado pelo British Council como Young Creative Entrepreneur, a empresa se destacou internacionalmente em festivais como Sunny Side of the Doc, SXSW e Power to the Pixel, além de premiações no Brasil.</p>
+              
+              <p>Suas produções incluem séries e documentários para Canal Futura, Canal Brasil, Canal Curta e Sebrae, além de projetos interativos para o Museu do Amanhã, Museu da Língua Portuguesa e Conservação Internacional. Entre seus clientes estão Fundação Roberto Marinho, British Council, Oi, Light e Webedia, consolidando-se como referência em inovação audiovisual.</p>
+            </>
+          }
+        >
+          <div className="diagonal-divider diagonal-divider-top"></div>
+          <div className="diagonal-divider diagonal-divider-bottom"></div>
+        </IntroSection>
+      </Element>
+
+      {/* Header do Falatório */}
+      <div className="falatorio-header">
+        <h2>FALATÓRIO</h2>
+        <p>Trechos selecionados da obra de Stella do Patrocínio</p>
+      </div>
+
       {/* Página One */}
       <Element name="one">
         <PageSection
@@ -148,9 +303,12 @@ Bem patrocinada."
             "Que a Ana me disse"
           ]}
           curatorText="Texto curatorial por Sara Ramos"
-          audioDescription="./assets/audio/audiodescricao-01.mp3"
+          audioDescription={AudioDesc1}
           librasVideoId="VIDEO_ID_01"
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-01.mp3")}
+          onOpenAudioModal={() => {
+            console.log("Opening audio for page 1"); // Debug log
+            handleOpenAudioModal(AudioDesc1);
+          }}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_01")}
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -188,9 +346,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             </>
           }
           curatorText="Texto curatorial por Sara Ramos"
-          audioDescription="./assets/audio/audiodescricao-02.mp3"
+          audioDescription={AudioDesc2}
           librasVideoId="VIDEO_ID_02"
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-02.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc2)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_02")}
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -229,8 +387,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             "Tudo é bom e nada presta",
             "Neste mundo desigual"
           ]}
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-03.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc3)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_03")}
+          audioDescription={AudioDesc3}
           footnotes=" RAMOS, Sara Martins. Stella do Patrocínio: entre a letra e a negra garganta de carne. Dissertação – Foz do Iguaçu: Universidade Federal da Integração Latino-Americana, 2022."
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -253,8 +412,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
               <p>O trecho destacado no lambe-lambe reverbera em um debate atemporal sobre como os diferentes campos do conhecimento – seja a ciência, a psiquiatria ou a literatura etc. –, são atravessados pelas dinâmicas sociopolíticas e, por isso mesmo, são capazes de subjugar, desumanizar e violentar.</p>
             </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-04.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc4)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_04")}
+          audioDescription={AudioDesc4}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -277,8 +437,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
               <p>Quando, em outro momento de seu Falatório, Stella chama atenção para o fato de que ela era uma "nega preta e criola" andando na rua no instante em foi abduzida pelos agentes estatais, está novamente convocando nossos ouvidos a se atentarem para as dinâmicas raciais que regem as instituições, a circulação e o direito à cidade. Compreendendo que cada ação humana imprime memórias e vestígios aos lugares, o atual projeto buscar espalhar e devolver para as ruas as palavras e a presença de Stella do Patrocínio, posicionando-se ao seu lado nas disputas narrativas que envolvem os espaços urbanos.</p>
             </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-05.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc5)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_05")}
+          audioDescription={AudioDesc5}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -316,8 +477,9 @@ Cheguei e voltei
             "C: Chegou?",
             "S: Cheguei e voltei"
           ]}
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-06.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc6)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_06")}
+          audioDescription={AudioDesc6}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -339,8 +501,9 @@ Cheguei e voltei
               <p>Stella afirmava gostar de gravação. Embora a modalidade do registro não possa ser considerada completamente ética ou imediada – afinal de contas, é marcada por interlocuções entre sujeitos com posições diferentes na hierarquia institucional –, é a partir dele que podemos ouvir uma voz que narra a si e a própria prática da palavra. Ouvir o falatório, portanto, se torna fundamental não só para que possamos nos aproximas dos temas, da estética e das autonomeações de Stella do Patrocínio, mas também dos seus silêncios, das suas recusas a falar ou cantar, do contexto das suas escolhas. Acredito que o trecho destacado pelo lambe-lambe reverbera um tanto disso: a lembrança de que é preciso respeitar as falas, mas também as lacunas, as opacidades, os encerramentos e o desejo de calar.</p>
             </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-07.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc7)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_07")}
+          audioDescription={AudioDesc7}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -365,8 +528,9 @@ Cheguei e voltei
               <p>As possíveis interpretações são inexoravelmente catapultadas por um refinado senso rítmico, modulações vocálicas, rimas e aliterações – efeitos estéticos que fazem com que suas palavras permaneçam rondando nossos ouvidos. O trecho destacado inspirou a música composta por Linn da Quebrada chamada "medrosa - ode à Stella do Patrocínio".</p>
             </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-08.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc8)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_08")}
+          audioDescription={AudioDesc8}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -399,8 +563,9 @@ Cheguei e voltei
               <p>Aliás, penso que essa é uma das grandes particularidades do Falatório, como um todo: a sua capacidade de impressionar, embaralhar os sentidos e afetar seu ouvinte/leitor por meio de um estilo único – resultado de interações, como esta, entre sentido e forma.</p>
             </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-09.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc9)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_09")}
+          audioDescription={AudioDesc9}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -422,8 +587,9 @@ Cheguei e voltei
           </p>
           </>
           }
-          onOpenAudioModal={() => handleOpenAudioModal("./assets/audio/audiodescricao-10.mp3")}
+          onOpenAudioModal={() => handleOpenAudioModal(AudioDesc10)}
           onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_10")}
+          audioDescription={AudioDesc10}
           curatorText="Texto curatorial por Sara Ramos"
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
@@ -452,6 +618,18 @@ function PageSection({
   onOpenAudioModal, 
   onOpenLibrasModal 
 }) {
+  const [audioError, setAudioError] = useState(false);
+  const [secondAudioError, setSecondAudioError] = useState(false);
+
+  const handleAudioError = (isSecondAudio = false) => {
+    console.log('Error loading audio:', isSecondAudio ? secondAudio : audio);
+    if (isSecondAudio) {
+      setSecondAudioError(true);
+    } else {
+      setAudioError(true);
+    }
+  };
+
   return (
     <div className="page-section" id={id}>
       {children}
@@ -475,20 +653,36 @@ function PageSection({
         <div className="content-flex">
           <div className="left-content">
             <img src={image} alt={`Cartaz ${id}`} className="cartaz-image" />
-            {audio && (
+            {audio && !audioError && (
               <div className="audio-section">
                 <h3 className="section-title">Ouça o trecho</h3>
-                <audio controls>
-                  <source src={audio} type="audio/mpeg" />
+                <audio 
+                  controls 
+                  onError={() => handleAudioError(false)}
+                  onLoadStart={() => setAudioError(false)}
+                >
+                  <source 
+                    src={audio} 
+                    type="audio/mpeg" 
+                    onError={() => handleAudioError(false)}
+                  />
                   Seu navegador não suporta o elemento de áudio.
                 </audio>
               </div>
             )}
-            {secondAudio && (
+            {secondAudio && !secondAudioError && (
               <div className="audio-section">
                 <h3 className="section-title">Ouça o segundo trecho</h3>
-                <audio controls>
-                  <source src={secondAudio} type="audio/mpeg" />
+                <audio 
+                  controls 
+                  onError={() => handleAudioError(true)}
+                  onLoadStart={() => setSecondAudioError(false)}
+                >
+                  <source 
+                    src={secondAudio} 
+                    type="audio/mpeg" 
+                    onError={() => handleAudioError(true)}
+                  />
                   Seu navegador não suporta o elemento de áudio.
                 </audio>
               </div>
@@ -496,9 +690,13 @@ function PageSection({
             <div className="accessibility-section">
               <h3 className="section-title">Acessibilidade</h3>
               <div className="accessibility-buttons">
-                <button className="accessibility-btn" onClick={onOpenAudioModal}>
+                <button 
+                  className="accessibility-btn" 
+                  onClick={onOpenAudioModal}
+                  disabled={audioDescription === null}
+                >
                   <span className="icon">🔊</span>
-                  Audiodescrição
+                  {audioDescription === null ? 'Audiodescrição indisponível' : 'Audiodescrição'}
                 </button>
                 <button className="accessibility-btn" onClick={onOpenLibrasModal}>
                   <span className="icon">👋</span>
@@ -507,9 +705,14 @@ function PageSection({
               </div>
             </div>
             <h3 className="section-title">Baixe o cartaz</h3>
-            <button className="accessibility-btn" onClick={onOpenLibrasModal}>
+            <a 
+              href="https://drive.google.com/file/d/1gNhbilOgsqyXFutztRBCtNTgZKbLb4OI/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="accessibility-btn"
+            >
               Baixe Aqui
-            </button>
+            </a>
           </div>
           <div className="text-content-section">
             {textContent}
