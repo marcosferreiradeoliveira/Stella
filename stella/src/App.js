@@ -27,17 +27,17 @@ import StellaRetrato from "./assets/images/STELLA.png";
 import EquipeMob from "./assets/images/equipe-mob.jpg.webp";
 import ProjetoImg from "./assets/images/projeto.png";
 
-// Constantes para audiodescrições (indisponíveis no momento)
-const AudioDesc1 = null;
-const AudioDesc2 = null;
-const AudioDesc3 = null;
-const AudioDesc4 = null;
-const AudioDesc5 = null;
-const AudioDesc6 = null;
-const AudioDesc7 = null;
-const AudioDesc8 = null;
-const AudioDesc9 = null;
-const AudioDesc10 = null;
+// Constantes para audiodescrições
+import AudioDesc1 from "./assets/Audiodescricao/one.mp3";
+import AudioDesc2 from "./assets/Audiodescricao/two.mp3";
+import AudioDesc3 from "./assets/Audiodescricao/three.mp3";
+import AudioDesc4 from "./assets/Audiodescricao/four.mp3";
+import AudioDesc5 from "./assets/Audiodescricao/five.mp3";
+import AudioDesc6 from "./assets/Audiodescricao/six.mp3";
+import AudioDesc7 from "./assets/Audiodescricao/seven.mp3";
+import AudioDesc8 from "./assets/Audiodescricao/eight.mp3";
+import AudioDesc9 from "./assets/Audiodescricao/nine.mp3";
+import AudioDesc10 from "./assets/Audiodescricao/ten.mp3";
 
 function Modal({ isOpen, onClose, children, audioDescription, librasVideoId }) {
   const [audioError, setAudioError] = useState(false);
@@ -52,13 +52,18 @@ function Modal({ isOpen, onClose, children, audioDescription, librasVideoId }) {
         {audioDescription && (
           <div className="audio-modal-content">
             <h3>Audiodescrição</h3>
-            {audioDescription !== null ? (
-              <audio controls onError={() => setAudioError(true)}>
-                <source src={audioDescription} type="audio/mpeg" />
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
-            ) : (
-              <p>Audiodescrição não disponível no momento.</p>
+            <audio 
+              controls 
+              onError={() => {
+                console.error('Error loading audio:', audioDescription);
+                setAudioError(true);
+              }}
+            >
+              <source src={audioDescription} type="audio/mpeg" />
+              Seu navegador não suporta o elemento de áudio.
+            </audio>
+            {audioError && (
+              <p className="error-message">Erro ao carregar o áudio. Por favor, tente novamente.</p>
             )}
           </div>
         )}
@@ -304,12 +309,12 @@ Bem patrocinada."
           ]}
           curatorText="Texto curatorial por Sara Ramos"
           audioDescription={AudioDesc1}
-          librasVideoId="VIDEO_ID_01"
+          librasVideoId="IoRkuWWliFM"
           onOpenAudioModal={() => {
             console.log("Opening audio for page 1"); // Debug log
             handleOpenAudioModal(AudioDesc1);
           }}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_01")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
         </PageSection>
@@ -347,9 +352,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
           }
           curatorText="Texto curatorial por Sara Ramos"
           audioDescription={AudioDesc2}
-          librasVideoId="VIDEO_ID_02"
+          librasVideoId="IoRkuWWliFM"
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc2)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_02")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
         >
           <div className="diagonal-divider diagonal-divider-top"></div>
           <div className="diagonal-divider diagonal-divider-bottom"></div>
@@ -388,7 +393,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             "Neste mundo desigual"
           ]}
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc3)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_03")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc3}
           footnotes=" RAMOS, Sara Martins. Stella do Patrocínio: entre a letra e a negra garganta de carne. Dissertação – Foz do Iguaçu: Universidade Federal da Integração Latino-Americana, 2022."
           curatorText="Texto curatorial por Sara Ramos"
@@ -413,7 +418,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc4)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_04")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc4}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -438,7 +443,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc5)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_05")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc5}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -478,7 +483,7 @@ Cheguei e voltei
             "S: Cheguei e voltei"
           ]}
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc6)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_06")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc6}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -502,7 +507,7 @@ Cheguei e voltei
             </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc7)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_07")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc7}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -529,7 +534,7 @@ Cheguei e voltei
             </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc8)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_08")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc8}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -564,7 +569,7 @@ Cheguei e voltei
             </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc9)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_09")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc9}
           curatorText="Texto curatorial por Sara Ramos"
         >
@@ -588,7 +593,7 @@ Cheguei e voltei
           </>
           }
           onOpenAudioModal={() => handleOpenAudioModal(AudioDesc10)}
-          onOpenLibrasModal={() => handleOpenLibrasModal("VIDEO_ID_10")}
+          onOpenLibrasModal={() => handleOpenLibrasModal("IoRkuWWliFM")}
           audioDescription={AudioDesc10}
           curatorText="Texto curatorial por Sara Ramos"
         >
