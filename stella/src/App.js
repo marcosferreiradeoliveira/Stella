@@ -407,7 +407,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
       <Element name="four">
         <PageSection
           id="four"
-          title="Equem vence um belo é um belo, quem vence o saúde é outra saúde, quem vence o normal é outro normal, quem vence um cientista é outro cientista"
+          title="quem vence um belo é um belo, quem vence o saúde é outra saúde, quem vence o normal é outro normal, quem vence um cientista é outro cientista"
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz4}
           audio={Audio5}
