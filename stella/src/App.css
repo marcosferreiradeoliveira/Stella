@@ -22,6 +22,7 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  padding-top: 200px;
 }
 
 .diagonal-blue {
@@ -57,12 +58,14 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: 0;
 }
 
 .text-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  padding-right: 20px;
 }
 
 .title {
@@ -72,7 +75,8 @@ body {
   text-transform: uppercase;
   margin: 0;
   line-height: 0.9;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .author {
@@ -269,13 +273,16 @@ audio {
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 3;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
   max-width: none;
   width: auto;
-  height: 80px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .content-flex {
@@ -496,13 +503,16 @@ h3.section-title {
   position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 3;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
 }
 
 .realizacao-image {
   max-width: none;
   width: auto;
-  height: 150px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .footnotes {
@@ -723,4 +733,266 @@ h3.section-title {
   font-size: 1rem;
   color: #333;
   line-height: 1.4;
+}
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 1200px) {
+  .hero-container {
+    width: 95%;
+    padding-top: 100px;
+  }
+
+  .title {
+    font-size: 7rem;
+  }
+
+  .author {
+    font-size: 4rem;
+  }
+
+  .stella-image {
+    width: 500px;
+  }
+}
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 6rem;
+  }
+
+  .author {
+    font-size: 3.5rem;
+  }
+
+  .stella-image {
+    width: 400px;
+  }
+
+  .section-content {
+    padding: 1.5rem;
+  }
+
+  .content-flex {
+    gap: 1.5rem;
+  }
+
+  .left-content {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 0 2rem 0;
+    padding-top: 180px;
+  }
+
+  .text-content {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-right: 0;
+  }
+
+  .title {
+    font-size: 5rem;
+  }
+
+  .author {
+    font-size: 3rem;
+  }
+
+  .image-content {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .stella-image {
+    width: 300px;
+  }
+
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .intro-image-container {
+    grid-column: 1;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .intro-text-content {
+    grid-column: 1;
+    padding-right: 0;
+  }
+
+  .content-flex {
+    flex-direction: column;
+  }
+
+  .left-content {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .navigation-menu {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .logo-container {
+    top: 15px;
+    right: 15px;
+  }
+
+  .realizacao-container {
+    top: 15px;
+    left: 15px;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .realizacao-image {
+    height: 45px;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .author {
+    font-size: 2.5rem;
+  }
+
+  .stella-image {
+    width: 250px;
+  }
+
+  .logo-container {
+    top: 10px;
+    right: 10px;
+  }
+
+  .realizacao-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  .realizacao-image {
+    height: 35px;
+  }
+
+  .intro-title-container h2 {
+    font-size: 2rem;
+  }
+
+  .page-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navigation-menu a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .team-box {
+    padding: 1.5rem;
+  }
+
+  .team-box h3 {
+    font-size: 1.1rem;
+  }
+
+  .team-box p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .video-container {
+    min-width: 100%;
+  }
+
+  .accessibility-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .accessibility-btn {
+    width: 100%;
+  }
+
+  .layout {
+    padding-top: 160px;
+  }
+}
+
+/* Ajustes específicos para telas muito pequenas */
+@media (max-width: 360px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .author {
+    font-size: 2rem;
+  }
+
+  .stella-image {
+    width: 200px;
+  }
+
+  .intro-title-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-section h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-container {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .author {
+    font-size: 2.5rem;
+  }
+
+  .stella-image {
+    width: 250px;
+  }
+
+  .navigation-menu {
+    position: relative;
+    top: 0;
+  }
 }
