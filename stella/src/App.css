@@ -255,6 +255,8 @@ audio {
 .text-content-section {
   flex: 1;
   margin-top: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .text-content-section p {
@@ -457,6 +459,10 @@ h3.section-title {
 .curator-text {
   font-weight: bold;
   font-family: Unit Slab, sans-serif;
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .realizacao-container {
@@ -963,4 +969,9 @@ h3.section-title {
     position: relative;
     top: 0;
   }
+}
+
+/* Ajuste para garantir que o conteúdo da última seção fique visível */
+.page-section#ten .text-content-section {
+  margin-bottom: 4rem;
 }

@@ -404,9 +404,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
       </Element>
 
       {/* Página Four */}
-      <Element name="four">
+      <Element name="seven">
         <PageSection
-          id="four"
+          id="seven"
           title="quem vence um belo é um belo, quem vence o saúde é outra saúde, quem vence o normal é outro normal, quem vence um cientista é outro cientista"
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz4}
@@ -428,9 +428,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
       </Element>
 
       {/* Página Five */}
-      <Element name="five">
+      <Element name="six">
         <PageSection
-          id="five"
+          id="six"
           title="Eu sei que eu tomei cor. Nos gases eu me formei e tomei cor. [...] Era Rio de Janeiro, ainda era Botafogo…"
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz5}
@@ -453,9 +453,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
       </Element>
 
       {/* Página Six */}
-      <Element name="six">
+      <Element name="five">
         <PageSection
-          id="six"
+          id="five"
           title="Fui parar no mais longe possível
 Continuei seguindo pro mais longe possível
 Cheguei e voltei
@@ -493,9 +493,9 @@ Cheguei e voltei
       </Element>
 
       {/* Página Seven */}
-      <Element name="seven">
+      <Element name="ten">
         <PageSection
-          id="seven"
+          id="ten"
           title="Eu já falei em excesso, em acesso, muito e demais, declarei expliquei esclareci tudo, falei tudo que tinha que falar."
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz7}
@@ -517,9 +517,9 @@ Cheguei e voltei
       </Element>
 
       {/* Página Eight */}
-      <Element name="eight">
+      <Element name="four">
         <PageSection
-          id="eight"
+          id="four"
           title="Não sei como se faz justiça. E sou advogada de defesa e salva-vida. [...] Eu tenho que enfrentar a violência, a brutalidade, a grosseria... e ir à luta, pelo pão de cada dia."
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz8}
@@ -579,9 +579,9 @@ Cheguei e voltei
       </Element>
 
       {/* Página Ten */}
-      <Element name="ten">
+      <Element name="eight">
         <PageSection
-          id="ten"
+          id="eight"
           title="Eu tenho vontade de ganhar dinheiro. Mas não tenho vontade de produzir nunca."
           description="Este é um recorte do Falatório de Stella do Patrocínio, mulher negra e carioca que, através da palavra oral, criou um estilo estético-político e artístico singular."
           image={Cartaz3}
