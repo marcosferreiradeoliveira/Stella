@@ -108,11 +108,12 @@ body {
   width: 100%;
   padding: 0;
   font-family: 'Unit Slab', sans-serif;
+  padding-top: 4rem;
 }
 
 .page-section#one {
   background-color: #f6efdf;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .section-content {
@@ -123,6 +124,8 @@ body {
   margin-top: 0;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 6rem;
+  padding-top: 4rem;
 }
 
 .title-container {
@@ -130,7 +133,7 @@ body {
   flex-direction: column;
   margin-bottom: 2rem;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .title-container h1 {
@@ -178,7 +181,7 @@ body {
 .page-section#ten {
   background-color: #f6efdf;
   position: relative;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .diagonal-divider {
@@ -196,7 +199,7 @@ body {
 }
 
 .diagonal-divider-bottom {
-  bottom: -50px;
+  bottom: -150px;
   transform: skewY(5deg);
 }
 
@@ -241,7 +244,7 @@ audio {
 .logo {
   max-width: none;
   width: auto;
-  height: 60px;
+  height: 80px;
   object-fit: contain;
 }
 
@@ -257,11 +260,35 @@ audio {
   margin-top: 0;
   position: relative;
   z-index: 2;
+  margin-bottom: 4rem;
 }
 
 .text-content-section p {
   margin-bottom: 1.5rem;
   font-family: 'Unit Slab', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.text-content-section .audio-link {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.text-content-section .audio-link a {
+  color: #0D47A1;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.text-content-section .audio-link a:hover {
+  color: #008B47;
+  text-decoration: underline;
 }
 
 .text-content-section blockquote {
@@ -292,6 +319,7 @@ audio {
 .left-content {
   flex: 1;
   max-width: 500px;
+  margin-bottom: 4rem;
 }
 
 .left-content > h3.section-title {
@@ -462,7 +490,7 @@ h3.section-title {
   position: relative;
   z-index: 2;
   margin-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 6rem;
 }
 
 .realizacao-container {
@@ -477,7 +505,7 @@ h3.section-title {
 .realizacao-image {
   max-width: none;
   width: auto;
-  height: 60px;
+  height: 160px;
   object-fit: contain;
 }
 
@@ -537,7 +565,7 @@ h3.section-title {
 
 /* Estilos para as seções introdutórias */
 .intro-section {
-  padding: 4rem 2rem;
+  padding: 8rem 2rem 4rem 2rem;
   max-width: 100%;
   margin: 0;
   position: relative;
@@ -554,7 +582,7 @@ h3.section-title {
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 .intro-title-container {
@@ -822,11 +850,11 @@ h3.section-title {
   }
 
   .logo {
-    height: 45px;
+    height: 60px;
   }
 
   .realizacao-image {
-    height: 45px;
+    height: 120px;
   }
 
   .title-container {
@@ -858,11 +886,11 @@ h3.section-title {
   }
 
   .logo {
-    height: 35px;
+    height: 45px;
   }
 
   .realizacao-image {
-    height: 35px;
+    height: 90px;
   }
 
   .intro-title-container h2 {
@@ -921,6 +949,10 @@ h3.section-title {
   .title-container {
     padding-top: 1rem;
   }
+
+  .text-content-section p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Ajustes específicos para telas muito pequenas */
@@ -973,5 +1005,81 @@ h3.section-title {
 
 /* Ajuste para garantir que o conteúdo da última seção fique visível */
 .page-section#ten .text-content-section {
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
+}
+
+/* Estilos para o footer */
+.footer {
+  background-color: #0D47A1;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 2;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #F7DF1E;
+  text-decoration: none;
+  font-family: 'Unit Slab', sans-serif;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #0D47A1;
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.social-link .icon {
+  font-size: 1.4rem;
+}
+
+.production-text {
+  color: #F7DF1E;
+  font-family: 'Unit Slab', sans-serif;
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+
+  .footer-content {
+    padding: 0 1rem;
+  }
+
+  .social-link {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .production-text {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
 }
