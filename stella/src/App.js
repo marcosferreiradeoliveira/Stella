@@ -337,12 +337,12 @@ Bem patrocinada."
             ]}
             curatorText="Texto curatorial por Sara Ramos"
             audioDescription={AudioDesc1}
-            librasVideoId="hNlbR68QAVk"
+            librasVideoId="CTlnR771SAk"
             onOpenAudioModal={() => {
               console.log("Opening audio for page 1"); // Debug log
               handleOpenAudioModal(AudioDesc1);
             }}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
           >
             <div className="diagonal-divider diagonal-divider-top"></div>
           </PageSection>
@@ -381,9 +381,9 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
             }
             curatorText="Texto curatorial por Sara Ramos"
             audioDescription={AudioDesc2}
-            librasVideoId="hNlbR68QAVk"
+            librasVideoId="CTlnR771SAk"
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc2)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
           >
             <div className="diagonal-divider diagonal-divider-top"></div>
             <div className="diagonal-divider diagonal-divider-bottom"></div>
@@ -424,7 +424,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
               "Neste mundo desigual"
             ]}
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc3)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc3}
             footnotes=" * RAMOS, Sara Martins. Stella do Patrocínio: entre a letra e a negra garganta de carne. Dissertação – Foz do Iguaçu: Universidade Federal da Integração Latino-Americana, 2022."
             curatorText="Texto curatorial por Sara Ramos"
@@ -449,7 +449,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
               </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc4)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc4}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -474,7 +474,7 @@ O trecho do Falatório que aqui destacamos faz parte de um dos muitos recortes e
               </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc5)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc5}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -514,7 +514,7 @@ Cheguei e voltei
               "S: Cheguei e voltei"
             ]}
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc6)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc6}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -538,7 +538,7 @@ Cheguei e voltei
               </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc7)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc7}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -565,7 +565,7 @@ Cheguei e voltei
               </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc8)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc8}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -600,7 +600,7 @@ Cheguei e voltei
               </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc9)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc9}
             curatorText="Texto curatorial por Sara Ramos"
           >
@@ -626,7 +626,7 @@ Cheguei e voltei
             </>
             }
             onOpenAudioModal={() => handleOpenAudioModal(AudioDesc10)}
-            onOpenLibrasModal={() => handleOpenLibrasModal("hNlbR68QAVk")}
+            onOpenLibrasModal={() => handleOpenLibrasModal("CTlnR771SAk")}
             audioDescription={AudioDesc10}
             curatorText="Texto curatorial por Sara Ramos"
           >
